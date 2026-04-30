@@ -9,38 +9,43 @@
     <title>Geometry Genius</title>
 </head>
 
-<body>
+<body class="m-8 ">
     <header>
 
     </header>
     <main>
         <!-- main card container -->
-        <div>
+        <div class="flex flex-col md:flex-row">
             <!-- shape card container -->
-            <div>
+            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 <!-- triangle card -->
                 <div class="card bg-base-100 w-96 shadow-sm">
                     <figure>
-                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                            alt="Shoes" />
+                        <img src="images/triangle.png" alt="Triangle" />
                     </figure>
                     <div class="card-body">
-                        <h2 class="card-title">Card Title</h2>
-                        <p>A card component has a figure, a body part, and inside body there are title and actions parts
+                        <h2 class="card-title">Triangle</h2>
+                        <p class="text-center">Area (A) = 0.5 X b X h
                         </p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
+                        <div>
+                            <input class="w-24 text-2xl p-2 rounded-sm" type="text" placeholder="b">
+                            <span class="mr-4 ml-2">cm</span>
+                            <input class="w-24 text-2xl p-2 rounded-sm" type="text" placeholder="h">
+                            <span class="mr-4 ml-2">cm</span>
+                        </div>
+                        <div class="card-actions">
+                            <button onclick="calculateTriangleArea()" class="btn btn-primary w-full">Calculate</button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- area calculation container -->
-            <div class="w-96">
-                <h3 class="text-3xl">Area Calculation</h3>
+            <div class="w-96 border-2 border-green-700 rounded-md">
+                <h3 class="text-3xl text-center p-4">Area Calculation</h3>
             </div>
         </div>
     </main>
-
+    <script src="scripts/triangle-calculate.js"></script>
 </body>
 
 </html>
