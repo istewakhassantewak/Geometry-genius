@@ -2,191 +2,334 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Geometry Genius</title>
 </head>
 
-<body class="m-8 ">
-    <header>
+<body class="min-h-screen bg-slate-50 text-slate-900">
+    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4">
+            <a href="#home" class="flex items-center gap-3 text-slate-900">
+                <span
+                    class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-600 to-indigo-500 text-lg font-bold text-white">G</span>
+                <div>
+                    <p class="font-semibold text-lg">Geometry Genius</p>
+                    <p class="text-sm text-slate-500">Smart shape calculator</p>
+                </div>
+            </a>
 
-    </header>
-    <main>
-        <!-- main card container -->
-        <div class="flex flex-col md:flex-row">
-            <!-- shape card container -->
-            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- triangle card -->
-                <div class=" bg-base-100 w-full;
-                 shadow-sm ">
-                    <figure class="flex justify-center">
-                        <img src="images/triangle.png" alt="Triangle" />
-                    </figure>
-                    <div class="card-body space-y-4">
-                        <h2 class="font-bold text-3xl text-center">Triangle</h2>
-                        <p class="text-center text-2xl">Area (A) = 0.5 X b X h
-                        </p>
-                        <div>
-                            <input id="triangle-base" class="w-24 text-2xl p-2 rounded-sm" type="text" placeholder="b">
-                            <span class="mr-4 ml-2">cm</span>
-                            <input id="triangle-height" class="w-24 text-2xl p-2 rounded-sm" type="text"
-                                placeholder="h">
-                            <span class="mr-4 ml-2">cm</span>
-                        </div>
-                        <div>
-                            <p class="text-2xl">
-                                Area: <span id="triangle-area"></span> <span>cm<sup>2</sup></span>
-                            </p>
-                        </div>
-                        <div class="card-actions">
-                            <button onclick="calculateTriangleArea()" class="btn btn-primary w-full">Calculate</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- rectangle card -->
-                <div class=" bg-base-100 w-full shadow-sm">
-                    <figure class="flex justify-center">
-                        <img src="images/rectangle.png" alt="Rectangle" />
-                    </figure>
-                    <div class="card-body space-y-4">
-                        <h2 class="font-bold text-3xl text-center">Rectangle</h2>
-                        <p class="text-center text-2xl">Area (A) = w X l
-                        </p>
-                        <div>
-                            <input id="rectangle-width" class="w-24 text-2xl p-2 rounded-sm" type="text"
-                                placeholder="w">
-                            <span class="mr-4 ml-2">cm</span>
-                            <input id="rectangle-length" class="w-24 text-2xl p-2 rounded-sm" type="text"
-                                placeholder="l">
-                            <span class="mr-4 ml-2">cm</span>
-                        </div>
-                        <div>
-                            <p class="text-2xl">
-                                Area: <span id="rectangle-area"></span> <span>cm<sup>2</sup></span>
-                            </p>
-                        </div>
-                        <div class="card-actions">
-                            <button onclick="calculateRectangleArea()" class="btn btn-primary w-full">Calculate</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- parallelogram card -->
-                <div class=" bg-base-100 w-full shadow-sm">
-                    <figure class="flex justify-center">
-                        <img src="images/parallelogram.png" alt="Rectangle" />
-                    </figure>
-                    <div class="card-body space-y-4">
-                        <h2 class="font-bold text-3xl text-center">parallelogram</h2>
-                        <p class="text-center text-2xl">Area (A) = b X h
-                        </p>
-                        <div>
-                            <input id="Parallelogram-base" class="w-24 text-2xl p-2 rounded-sm" type="text"
-                                placeholder="b">
-                            <span class="mr-4 ml-2">cm</span>
-                            <input id="Parallelogram-height" class="w-24 text-2xl p-2 rounded-sm" type="text"
-                                placeholder="h">
-                            <span class="mr-4 ml-2">cm</span>
-                        </div>
-                        <div>
-                            <p class="text-2xl">
-                                Area: <span id="Parallelogram-area"></span> <span>cm<sup>2</sup></span>
-                            </p>
-                        </div>
-                        <div class="card-actions">
-                            <button onclick="calculateParallelogramArea()"
-                                class="btn btn-primary w-full">Calculate</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Rhombus card -->
-                <div class=" bg-base-100 w-full shadow-sm">
-                    <figure class="flex justify-center">
-                        <img src="images/rhombus.png" alt="Rectangle" />
-                    </figure>
-                    <div class="card-body space-y-4">
-                        <h2 class="font-bold text-3xl text-center">Rhombus</h2>
-                        <p class="text-center text-2xl">Area (A) = 0.5 X d<sub>1</sub> X d<sub>2</sub>
-                        </p>
-                        <div>
-                            <input id="Rhombus-base" class="w-24 text-2xl p-2 rounded-sm" type="text" placeholder="d1">
-                            <span class="mr-4 ml-2">cm</span>
-                            <input id="Rhombus-height" class="w-24 text-2xl p-2 rounded-sm" type="text"
-                                placeholder="d2">
-                            <span class="mr-4 ml-2">cm</span>
-                        </div>
-                        <div>
-                            <p class="text-2xl">
-                                Area: <span id="Rhombus-area"></span> <span>cm<sup>2</sup></span>
-                            </p>
-                        </div>
-                        <div class="card-actions">
-                            <button onclick="calculateRhombusArea()" class="btn btn-primary w-full">Calculate</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pentagon card -->
-                <div class=" bg-base-100 w-full shadow-sm">
-                    <figure class="flex justify-center">
-                        <img src="images/pentagon.png" alt="Rectangle" />
-                    </figure>
-                    <div class="card-body space-y-4">
-                        <h2 class="font-bold text-3xl text-center">Pentagon</h2>
-                        <p class="text-center text-2xl">Area (A) = 0.5 X p X b
-                        </p>
-                        <div>
-                            <input id="Pentagon-base" class="w-24 text-2xl p-2 rounded-sm" type="text" placeholder="p">
-                            <span class="mr-4 ml-2">cm</span>
-                            <input id="Pentagon-height" class="w-24 text-2xl p-2 rounded-sm" type="text"
-                                placeholder="b">
-                            <span class="mr-4 ml-2">cm</span>
-                        </div>
-                        <div>
-                            <p class="text-2xl">
-                                Area: <span id="Pentagon-area"></span> <span>cm<sup>2</sup></span>
-                            </p>
-                        </div>
-                        <div class="card-actions">
-                            <button onclick="calculatePentagonArea()" class="btn btn-primary w-full">Calculate</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Ellipse card -->
-                <div class=" bg-base-100 w-full shadow-sm">
-                    <figure class="flex justify-center">
-                        <img src="images/ellipse.png" alt="Rectangle" />
-                    </figure>
-                    <div class="card-body space-y-4">
-                        <h2 class="font-bold text-3xl text-center">Ellipse</h2>
-                        <p class="text-center text-2xl">Area (A) = pie X a X b
-                        </p>
-                        <div>
-                            <input id="Ellipse-base" class="w-24 text-2xl p-2 rounded-sm" type="text" placeholder="a">
-                            <span class="mr-4 ml-2">cm</span>
-                            <input id="Ellipse-height" class="w-24 text-2xl p-2 rounded-sm" type="text" placeholder="b">
-                            <span class="mr-4 ml-2">cm</span>
-                        </div>
-                        <div>
-                            <p class="text-2xl">
-                                Area: <span id="Ellipse-area"></span> <span>cm<sup>2</sup></span>
-                            </p>
-                        </div>
-                        <div class="card-actions">
-                            <button onclick="calculateEllipseArea()" class="btn btn-primary w-full">Calculate</button>
-                        </div>
-                    </div>
-                </div>
+            <nav class="hidden items-center gap-8 text-sm font-medium text-slate-600 lg:flex">
+                <a href="#home" class="hover:text-slate-900">Home</a>
+                <a href="#features" class="hover:text-slate-900">Features</a>
+                <a href="#about" class="hover:text-slate-900">About</a>
+                <a href="#contact" class="hover:text-slate-900">Contact</a>
+            </nav>
 
-            </div>
-            <!-- area calculation container -->
-            <div class="w-96 border-2 border-green-700 rounded-md">
-                <h3 class="text-2xl text-center p-4">Area Calculation</h3>
+            <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu"
+                class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-sm lg:hidden">
+                <span class="sr-only">Open main menu</span>
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 7h16M4 12h16M4 17h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white/95 lg:hidden">
+            <div class="mx-auto max-w-7xl space-y-3 px-4 py-4">
+                <a href="#home" class="block rounded-2xl px-4 py-3 text-sm text-slate-700 hover:bg-slate-100">Home</a>
+                <a href="#features"
+                    class="block rounded-2xl px-4 py-3 text-sm text-slate-700 hover:bg-slate-100">Features</a>
+                <a href="#about" class="block rounded-2xl px-4 py-3 text-sm text-slate-700 hover:bg-slate-100">About</a>
+                <a href="#contact"
+                    class="block rounded-2xl px-4 py-3 text-sm text-slate-700 hover:bg-slate-100">Contact</a>
             </div>
         </div>
-    </main>
-    <script src="scripts/calculate.js"></script>
+    </header>
 
+    <main class="mx-auto max-w-7xl px-4 py-8">
+        <section id="features" class="grid gap-6 xl:grid-cols-[1.9fr_1.1fr]">
+            <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                <article
+                    class="group rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-sky-50 focus-within:ring-2 focus-within:ring-sky-300"
+                    data-shape="triangle">
+                    <figure class="mb-6 flex justify-center">
+                        <img class="h-32 w-auto object-contain" src="images/triangle.png" alt="Triangle" />
+                    </figure>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-slate-900">Triangle</h3>
+                        <p class="text-sm text-slate-600">Area = 0.5 × base × height</p>
+                        <div class="grid gap-3 sm:grid-cols-2">
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Base (cm)</span>
+                                <input id="triangle-base"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="b" />
+                            </label>
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Height (cm)</span>
+                                <input id="triangle-height"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="h" />
+                            </label>
+                        </div>
+                        <div class="rounded-3xl bg-slate-50 p-4 text-slate-700">
+                            <p class="text-sm">Last result</p>
+                            <p class="mt-2 text-2xl font-semibold"><span id="triangle-area">—</span> cm<sup>2</sup></p>
+                        </div>
+                        <button type="button" class="calculate-button btn btn-primary w-full"
+                            data-shape="triangle">Calculate</button>
+                    </div>
+                </article>
+
+                <article
+                    class="group rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-emerald-50 focus-within:ring-2 focus-within:ring-emerald-300"
+                    data-shape="rectangle">
+                    <figure class="mb-6 flex justify-center">
+                        <img class="h-32 w-auto object-contain" src="images/rectangle.png" alt="Rectangle" />
+                    </figure>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-slate-900">Rectangle</h3>
+                        <p class="text-sm text-slate-600">Area = width × length</p>
+                        <div class="grid gap-3 sm:grid-cols-2">
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Width (cm)</span>
+                                <input id="rectangle-width"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="w" />
+                            </label>
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Length (cm)</span>
+                                <input id="rectangle-length"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="l" />
+                            </label>
+                        </div>
+                        <div class="rounded-3xl bg-slate-50 p-4 text-slate-700">
+                            <p class="text-sm">Last result</p>
+                            <p class="mt-2 text-2xl font-semibold"><span id="rectangle-area">—</span> cm<sup>2</sup></p>
+                        </div>
+                        <button type="button" class="calculate-button btn btn-primary w-full"
+                            data-shape="rectangle">Calculate</button>
+                    </div>
+                </article>
+
+                <article
+                    class="group rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-orange-50 focus-within:ring-2 focus-within:ring-orange-300"
+                    data-shape="parallelogram">
+                    <figure class="mb-6 flex justify-center">
+                        <img class="h-32 w-auto object-contain" src="images/parallelogram.png" alt="Parallelogram" />
+                    </figure>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-slate-900">Parallelogram</h3>
+                        <p class="text-sm text-slate-600">Area = base × height</p>
+                        <div class="grid gap-3 sm:grid-cols-2">
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Base (cm)</span>
+                                <input id="parallelogram-base"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="b" />
+                            </label>
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Height (cm)</span>
+                                <input id="parallelogram-height"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="h" />
+                            </label>
+                        </div>
+                        <div class="rounded-3xl bg-slate-50 p-4 text-slate-700">
+                            <p class="text-sm">Last result</p>
+                            <p class="mt-2 text-2xl font-semibold"><span id="parallelogram-area">—</span> cm<sup>2</sup>
+                            </p>
+                        </div>
+                        <button type="button" class="calculate-button btn btn-primary w-full"
+                            data-shape="parallelogram">Calculate</button>
+                    </div>
+                </article>
+
+                <article
+                    class="group rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-fuchsia-50 focus-within:ring-2 focus-within:ring-fuchsia-300"
+                    data-shape="rhombus">
+                    <figure class="mb-6 flex justify-center">
+                        <img class="h-32 w-auto object-contain" src="images/rhombus.png" alt="Rhombus" />
+                    </figure>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-slate-900">Rhombus</h3>
+                        <p class="text-sm text-slate-600">Area = 0.5 × diagonal 1 × diagonal 2</p>
+                        <div class="grid gap-3 sm:grid-cols-2">
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Diagonal 1 (cm)</span>
+                                <input id="rhombus-d1"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="d1" />
+                            </label>
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Diagonal 2 (cm)</span>
+                                <input id="rhombus-d2"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="d2" />
+                            </label>
+                        </div>
+                        <div class="rounded-3xl bg-slate-50 p-4 text-slate-700">
+                            <p class="text-sm">Last result</p>
+                            <p class="mt-2 text-2xl font-semibold"><span id="rhombus-area">—</span> cm<sup>2</sup></p>
+                        </div>
+                        <button type="button" class="calculate-button btn btn-primary w-full"
+                            data-shape="rhombus">Calculate</button>
+                    </div>
+                </article>
+
+                <article
+                    class="group rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-teal-50 focus-within:ring-2 focus-within:ring-teal-300"
+                    data-shape="pentagon">
+                    <figure class="mb-6 flex justify-center">
+                        <img class="h-32 w-auto object-contain" src="images/pentagon.png" alt="Pentagon" />
+                    </figure>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-slate-900">Pentagon</h3>
+                        <p class="text-sm text-slate-600">Area = 0.5 × perimeter × apothem</p>
+                        <div class="grid gap-3 sm:grid-cols-2">
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Perimeter (cm)</span>
+                                <input id="pentagon-perimeter"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="p" />
+                            </label>
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Apothem (cm)</span>
+                                <input id="pentagon-apothem"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="a" />
+                            </label>
+                        </div>
+                        <div class="rounded-3xl bg-slate-50 p-4 text-slate-700">
+                            <p class="text-sm">Last result</p>
+                            <p class="mt-2 text-2xl font-semibold"><span id="pentagon-area">—</span> cm<sup>2</sup></p>
+                        </div>
+                        <button type="button" class="calculate-button btn btn-primary w-full"
+                            data-shape="pentagon">Calculate</button>
+                    </div>
+                </article>
+
+                <article
+                    class="group rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:bg-amber-50 focus-within:ring-2 focus-within:ring-amber-300"
+                    data-shape="ellipse">
+                    <figure class="mb-6 flex justify-center">
+                        <img class="h-32 w-auto object-contain" src="images/ellipse.png" alt="Ellipse" />
+                    </figure>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-slate-900">Ellipse</h3>
+                        <p class="text-sm text-slate-600">Area = π × a × b</p>
+                        <div class="grid gap-3 sm:grid-cols-2">
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Semi-major axis (cm)</span>
+                                <input id="ellipse-a"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="a" />
+                            </label>
+                            <label class="grid gap-2 text-sm text-slate-700">
+                                <span>Semi-minor axis (cm)</span>
+                                <input id="ellipse-b"
+                                    class="card-input w-full rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-lg text-slate-900"
+                                    type="text" inputmode="decimal" placeholder="b" />
+                            </label>
+                        </div>
+                        <div class="rounded-3xl bg-slate-50 p-4 text-slate-700">
+                            <p class="text-sm">Last result</p>
+                            <p class="mt-2 text-2xl font-semibold"><span id="ellipse-area">—</span> cm<sup>2</sup></p>
+                        </div>
+                        <button type="button" class="calculate-button btn btn-primary w-full"
+                            data-shape="ellipse">Calculate</button>
+                    </div>
+                </article>
+            </div>
+
+            <aside id="calculation-panel"
+                class="hidden fixed top-16 right-0 z-40 h-[calc(100%-4rem)] w-full max-w-sm overflow-y-auto rounded-bl-[2rem] border border-slate-200 bg-white p-6 shadow-xl transition-transform duration-300 ease-in-out translate-x-full lg:static lg:block lg:h-auto lg:max-w-none lg:top-auto lg:translate-x-0">
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.24em] text-sky-600">Calculation panel</p>
+                        <h2 class="mt-3 text-3xl font-semibold text-slate-900">Live results</h2>
+                        <p class="mt-3 max-w-xl text-sm leading-6 text-slate-600">Click a card, enter values, and tap
+                            calculate. Results appear instantly in the panel without a page reload.</p>
+                    </div>
+                    <button id="close-panel" aria-label="Close result panel"
+                        class="lg:hidden rounded-2xl bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700">Close</button>
+                </div>
+
+                <div class="mt-6 rounded-[1.75rem] bg-slate-50 p-5 shadow-sm">
+                    <p class="text-sm uppercase tracking-[0.24em] text-slate-500">Formula</p>
+                    <p id="panel-formula" class="mt-3 text-lg font-medium text-slate-900">No formula selected</p>
+                </div>
+
+                <div class="mt-8 space-y-6">
+                    <div class="rounded-[1.75rem] bg-slate-50 p-5 shadow-sm">
+                        <p class="text-sm uppercase tracking-[0.24em] text-slate-500">Current shape</p>
+                        <p id="panel-shape-name" class="mt-3 text-3xl font-semibold text-slate-900">No shape selected
+                        </p>
+                    </div>
+
+                    <div class="rounded-[1.75rem] bg-slate-50 p-5 shadow-sm">
+                        <p class="text-sm uppercase tracking-[0.24em] text-slate-500">Last computed area</p>
+                        <p id="panel-result" class="mt-3 text-5xl font-semibold text-slate-900" aria-live="polite">—</p>
+                        <p id="panel-metadata" class="mt-3 text-sm leading-6 text-slate-600"></p>
+                    </div>
+
+                    <div class="rounded-[1.75rem] bg-slate-50 p-5 shadow-sm">
+                        <p class="text-sm uppercase tracking-[0.24em] text-slate-500">Activity</p>
+                        <ul id="panel-activity" class="mt-4 space-y-3 text-sm text-slate-600"></ul>
+                    </div>
+
+                    <div class="panel-actions flex flex-wrap gap-3">
+                        <button id="copy-result" type="button" class="btn btn-secondary w-full sm:w-auto">Copy
+                            result</button>
+                        <button id="reset-inputs" type="button" class="btn btn-outline w-full sm:w-auto">Reset
+                            inputs</button>
+                    </div>
+                    <p id="panel-message" class="min-h-[2rem] text-sm text-rose-600"></p>
+                </div>
+            </aside>
+            <div id="panel-backdrop" class="hidden fixed inset-0 z-40 bg-slate-900/40 lg:hidden"></div>
+        </section>
+
+        <section id="about" class="mt-16 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+            <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+                <div>
+                    <p class="text-sm uppercase tracking-[0.24em] text-slate-500">About</p>
+                    <h2 class="mt-3 text-4xl font-semibold text-slate-900">Advanced geometry tools for modern learners
+                    </h2>
+                    <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">Geometry Genius now includes enhanced
+                        validation, formula details, responsive panels, and activity history. It is built to help
+                        students and enthusiasts calculate areas confidently across devices.</p>
+                </div>
+                <div class="grid gap-4 rounded-[1.75rem] bg-slate-50 p-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-slate-900">What’s new</h3>
+                        <ul class="mt-4 list-disc space-y-2 pl-5 text-slate-600">
+                            <li>Instant validation and inline field warnings</li>
+                            <li>Formula breakdown in the sidebar</li>
+                            <li>Copyable results and reset controls</li>
+                            <li>Mobile-friendly slide-in and history tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mt-8 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+            <div>
+                <p class="text-sm uppercase tracking-[0.24em] text-slate-500">Contact</p>
+                <h2 class="mt-3 text-3xl font-semibold text-slate-900">Need help with a calculation?</h2>
+                <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">Use the sidebar controls to copy results or
+                    reset values instantly. For feature ideas, ask for new shape calculators or formula expansions.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts/calculate.js"></script>
 </body>
 
 </html>
